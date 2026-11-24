@@ -31,6 +31,6 @@ flowchart LR
 
 ## 常用命令
 
-- `pnpm build:ui`
+- `npm run build:ui`
 - `go test ./...`
-- `pnpm tauri build`
+- `npm run tauri -- build`
