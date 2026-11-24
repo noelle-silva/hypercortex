@@ -7,6 +7,9 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const appDir = path.resolve(__dirname, '..')
+const targetDir = process.env.CARGO_TARGET_DIR
+  ? path.resolve(process.env.CARGO_TARGET_DIR)
+  : path.join(appDir, 'src-tauri', 'target')
 const require = createRequire(import.meta.url)
 const ffmpegBinaryName = process.platform === 'win32' ? 'ffmpeg.exe' : 'ffmpeg'
 
@@ -53,5 +56,5 @@ async function copyResources(target) {
   await copyFfmpeg(target)
 }
 
-await copyResources(path.join(appDir, 'src-tauri', 'target', 'debug'))
-await copyResources(path.join(appDir, 'src-tauri', 'target', 'resources'))
+await copyResources(path.join(targetDir, 'debug'))
+await copyResources(path.join(targetDir, 'resources'))
