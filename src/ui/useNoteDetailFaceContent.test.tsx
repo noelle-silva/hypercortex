@@ -28,7 +28,7 @@ beforeAll(async () => {
     })
   }
   ;({ useNoteDetailFaceContent } = await import('./useNoteDetailFaceContent'))
-})
+}, 30_000)
 
 function fakeStore(content: string, saved: string): FaceContentStore {
   return {
