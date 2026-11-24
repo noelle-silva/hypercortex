@@ -58,3 +58,7 @@ async function copyResources(target) {
 
 await copyResources(path.join(targetDir, 'debug'))
 await copyResources(path.join(targetDir, 'resources'))
+const localResources = path.join(appDir, 'src-tauri', 'target', 'resources')
+if (localResources !== path.join(targetDir, 'resources')) {
+  await copyResources(localResources)
+}
